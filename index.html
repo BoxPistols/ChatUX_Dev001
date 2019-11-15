@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>どうぶつボット</title>
+</head>
+
+<body>
+  <script src="js/chatux.min.js"></script>
+  <script>
+    const chatux = new ChatUx();
+
+    //ChatUXの初期化パラメータ
+    const initParam = {
+      renderMode: 'auto',
+      api: {
+        //echo chat server
+        endpoint: 'http://localhost:8080/chat',
+        method: 'GET',
+        dataType: 'jsonp'
+      },
+      bot: {
+        botPhoto: 'img/bot_icon_operator.png',
+        humanPhoto: null,
+        widget: {
+          sendLabel: '送信',
+          placeHolder: '好きな動物をおしえてね'
+        }
+      },
+      window: {
+        title: 'どうぶつボット',
+        infoUrl: 'https://github.com/riversun/chatux',
+        //////
+        size: {
+          width: 350, //ウィンドウの幅
+          height: 500, //ウィンドウの高さ
+          minWidth: 300, //ウィンドウの最小幅
+          minHeight: 300, //ウィンドウの最小高さ
+          titleHeight: 50 //ウィンドウのタイトルバー高さ
+        },
+
+        appearance: {
+          //ウィンドウのボーダースタイル
+          border: {
+            shadow: '4px 4px 14px rgba(0, 0, 0, 0.2)', //影
+            width: 0, //ボーダーの幅
+            radius: 12 //ウィンドウの角丸半径
+          },
+
+          //ウィンドウのタイトルバーのスタイル
+          titleBar: {
+            fontSize: 16,
+            color: 'white',
+            background: 'black',
+            leftMargin: 40,
+            height: 40,
+            buttonWidth: 0,
+            buttonHeight: 0,
+            buttonColor: 'white',
+          },
+          buttons: [
+            //閉じるボタン
+            {
+              //閉じるボタンのアイコン(fontawesome)
+              fa: 'fas fa-times',
+              name: 'hideButton',
+              visible: true //true:表示する
+            }
+          ],
+          buttonsOnLeft: [
+            //左上のinforUrlボタン
+            {
+              fa: 'fas fa-comment-alt', //specify font awesome icon
+              name: 'info',
+              visible: true //true:表示する
+            }
+          ],
+        },
+      }
+    };
+    chatux.init(initParam);
+    chatux.start(true);
+  </script>
+</body>
+
+</html>

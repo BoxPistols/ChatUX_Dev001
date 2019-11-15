@@ -1,0 +1,18 @@
+body{
+  background: aliceblue;
+}
+.chatux-btn-chat {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+.chatux-btn-chat:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.botui-container {
+  background-color: tomato;
+  font-size: 18px;
+}
